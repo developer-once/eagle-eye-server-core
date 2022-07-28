@@ -148,7 +148,7 @@ export default class Save extends Service {
    * @returns result
    */
   public async savePageUV(data: any, ip: string) {
-    if (data.resourceLoading?.length) {
+    if (data?.resourceLoading?.length) {
       this.savePerformance(data.resourceLoading, data.app_key);
     }
 

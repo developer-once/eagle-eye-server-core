@@ -68,7 +68,7 @@ export const PAGE_SIZE = 10;
 export const PAGE_OFFSET = 0;
 
 // --- 业务：Max Save in DB
-export const MAX_SAVE_DB_NUMBER = 100;
+export const MAX_SAVE_DB_NUMBER = 200;
 
 // --- 业务：admin
 export const USER_ADMIN = "admin"

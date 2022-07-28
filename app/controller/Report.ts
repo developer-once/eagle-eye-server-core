@@ -19,7 +19,7 @@ export default class ReportController extends BaseController {
      */
     const data = ctx.request.body;
     const ip = ctx.request.ip;
-    ctx.body = await ctx.service.save.saveReport(data, ip);
+    ctx.body = await ctx.service.report.saveReport(data, ip);
   }
 
   public async userSubTableSave() {
@@ -34,25 +34,25 @@ export default class ReportController extends BaseController {
     switch (body.event_type) {
       case "error":
       case "unhandledrejection":
-        data = await ctx.service.save.saveError(body, ip);
+        data = await ctx.service.report.saveError(body, ip);
         break
       case "ajaxLoad":
       case "fetchError":
       case "ajaxSlow":
-        data = await ctx.service.save.savePageAjaxApi(body, ip);
+        data = await ctx.service.report.savePageAjaxApi(body, ip);
         break
       case "resource":
-        data = await ctx.service.save.savePageResource(body, ip);
+        data = await ctx.service.report.savePageResource(body, ip);
         break
       case "uv":
       case "pv":
-        data = await ctx.service.save.savePageUV(body, ip);
+        data = await ctx.service.report.savePageUV(body, ip);
         break
       case "click":
-        data = await ctx.service.save.savePageClick(body, ip);
+        data = await ctx.service.report.savePageClick(body, ip);
         break
       default:
-        data = await ctx.service.save.saveReport(body, ip);
+        data = await ctx.service.report.saveReport(body, ip);
         break;
     }
 
@@ -63,7 +63,7 @@ export default class ReportController extends BaseController {
   public async reportCrash() {
     const { ctx } = this;
     const body = ctx.request.body;
-    const data = await ctx.service.save.savePageCrash(body);
+    const data = await ctx.service.report.savePageCrash(body);
     
     this.success(data);
   }
