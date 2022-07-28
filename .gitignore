@@ -19,6 +19,7 @@ redis/
 typings/
 config.*.ts
 *.d.ts
+config.json
 
 docker-compose.yml
 docker-compose-base.yml
