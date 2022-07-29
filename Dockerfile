@@ -6,10 +6,10 @@ COPY package-lock.json /app
 COPY tsconfig.json /app
 RUN npm install --registry=https://registry.npm.taobao.org
 
-COPY . /app
-
 RUN npm install --save-dev sequelize-cli --registry=https://registry.npm.taobao.org
 RUN npm run tsc
+
+COPY . /app
 
 EXPOSE 7001
 

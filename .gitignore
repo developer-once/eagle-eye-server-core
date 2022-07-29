@@ -13,6 +13,7 @@ logs/
 .history/
 .history
 eagle.tar
+.github
 
 mysql/
 redis/
