@@ -12,6 +12,7 @@ export default class BaseController extends Controller {
    */
   public async success(data: any, serverOpenRecord?: boolean) {
     this.ctx.body = {
+      success: true,
       code: 200,
       data,
       msg: 'success',

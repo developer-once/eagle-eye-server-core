@@ -7,7 +7,7 @@ import BaseController from './BaseController';
 export default class ReportController extends BaseController {
   // --- save user report ---
   public async report() {
-    const { ctx } = this;
+    const { ctx, service } = this;
     const { userSubTable } = ctx.app.config;
 
     if (userSubTable) {
@@ -19,11 +19,11 @@ export default class ReportController extends BaseController {
      */
     const data = ctx.request.body;
     const ip = ctx.request.ip;
-    ctx.body = await ctx.service.report.saveReport(data, ip);
+    ctx.body = await service.report.saveReport(data, ip);
   }
 
   public async userSubTableSave() {
-    const { ctx } = this;
+    const { ctx, service } = this;
     /**
      * 区分 PV/UV、用户上报、报错
      */
@@ -34,25 +34,25 @@ export default class ReportController extends BaseController {
     switch (body.event_type) {
       case "error":
       case "unhandledrejection":
-        data = await ctx.service.report.saveError(body, ip);
+        data = await service.report.saveError(body, ip);
         break
       case "ajaxLoad":
       case "fetchError":
       case "ajaxSlow":
-        data = await ctx.service.report.savePageAjaxApi(body, ip);
+        data = await service.report.savePageAjaxApi(body, ip);
         break
       case "resource":
-        data = await ctx.service.report.savePageResource(body, ip);
+        data = await service.report.savePageResource(body, ip);
         break
       case "uv":
       case "pv":
-        data = await ctx.service.report.savePageUV(body, ip);
+        data = await service.report.savePageUV(body, ip);
         break
       case "click":
-        data = await ctx.service.report.savePageClick(body, ip);
+        data = await service.report.savePageClick(body, ip);
         break
       default:
-        data = await ctx.service.report.saveReport(body, ip);
+        data = await service.report.saveReport(body, ip);
         break;
     }
 
@@ -61,9 +61,9 @@ export default class ReportController extends BaseController {
 
   // --- save page crash ---
   public async reportCrash() {
-    const { ctx } = this;
+    const { ctx, service } = this;
     const body = ctx.request.body;
-    const data = await ctx.service.report.savePageCrash(body);
+    const data = await service.report.savePageCrash(body);
     
     this.success(data);
   }

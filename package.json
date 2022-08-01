@@ -8,8 +8,8 @@
     "declarations": true
   },
   "scripts": {
-    "start": "egg-scripts start --title=egg-server-eagle-eye-server-core",
-    "stop": "egg-scripts stop --title=egg-server-eagle-eye-server-core",
+    "start": "egg-scripts start --title=eagle-eye-server-core",
+    "stop": "egg-scripts stop --title=eagle-eye-server-core",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test-local": "egg-bin test",
@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.3.1",
-    "crypto": "^1.0.1",
     "egg": "^2.6.1",
     "egg-cors": "^2.2.3",
     "egg-mysql": "^3.0.0",
@@ -37,7 +36,6 @@
     "zlib": "^1.0.5"
   },
   "devDependencies": {
-    "@types/crypto-js": "^4.1.0",
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.12",
     "@types/supertest": "^2.0.0",
