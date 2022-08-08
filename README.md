@@ -4,4 +4,4 @@
 
 ## 文档
 
-https://github.com/developer-ones/eagle-eye-server/README.md
+https://github.com/developer-ones/eagle-eye-server#readme
