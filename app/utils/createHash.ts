@@ -6,7 +6,7 @@ const crypto = require('crypto');
  * @returns { String } hash
  */
 export const createHash = (data: string) => {
-  let data_hash = crypto.createHash('md5');
+  const data_hash = crypto.createHash('md5');
   
   return data_hash.update(data).digest('hex')
 };

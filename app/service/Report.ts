@@ -2,12 +2,12 @@ import { Service } from 'egg';
 import { createHash } from '../utils/createHash';
 import { ZERO, MAX_SAVE_DB_NUMBER } from '../config/constValue';
 
-let PV_ARRAY: any = [];
-let ERROR_ARRAY: any = [];
-let REPORT_ARRAY: any = [];
-let CLICK_ARRAY: any = [];
-let RESOURCE_ARRAY: any = [];
-let AJAX_ARRAY: any = [];
+const PV_ARRAY: any = [];
+const ERROR_ARRAY: any = [];
+const REPORT_ARRAY: any = [];
+const CLICK_ARRAY: any = [];
+const RESOURCE_ARRAY: any = [];
+const AJAX_ARRAY: any = [];
 
 export default class Save extends Service {
   /**

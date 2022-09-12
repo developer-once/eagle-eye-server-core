@@ -12,7 +12,7 @@ const errorAppKeyList = new Set();
  * --- 必须参数 app_key ---
  * --- 检查时间是否符合要求 ---
  */
-module.exports = options => {
+module.exports = () => {
   return async function validateParams(ctx, next) {
 
     const { path } = ctx.request;
@@ -41,9 +41,9 @@ module.exports = options => {
 
     // ---- appKeyList 中不含 app_key ----
     if (!appKeyList.has(app_key)) {
-      let redisData = await ctx.app.redis.get(app_key);
+      const redisData = await ctx.app.redis.get(app_key);
       if (!redisData) {
-        let data = await ctx.service.project.getProject(app_key);
+        const data = await ctx.service.project.getProject(app_key);
         if (!data) {
           ctx.logger.error(`---- Api - ${path} -- log: [${moment(new Date()).format(FORMAT_TIME_STR)}]`, "params = :" , ctx.request?.body?.data || ctx.request?.query, "msg: app_key 不合法");
 

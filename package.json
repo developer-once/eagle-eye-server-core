@@ -39,13 +39,19 @@
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.12",
     "@types/supertest": "^2.0.0",
+    "@umijs/fabric": "^3.0.0",
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
+    "cz-conventional-changelog": "^3.3.0",
     "egg-bin": "^4.11.0",
     "egg-ci": "^1.8.0",
     "egg-mock": "^3.16.0",
-    "eslint": "^6.8.0",
+    "eslint": "^8.23.1",
     "eslint-config-egg": "^8.0.0",
+    "eslint-plugin-jest": "^27.0.4",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unicorn": "^43.0.2",
     "sequelize-cli": "^6.3.0",
     "tslib": "^1.9.0",
     "typescript": "^3.0.0"
@@ -64,5 +70,10 @@
     "coverage"
   ],
   "author": "buyu",
-  "license": "MIT"
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
