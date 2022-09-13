@@ -2,6 +2,7 @@
 const moment = require("moment");
 import { FORMAT_TIME_STR } from '../config/constValue';
 import errorCode from '../config/errorCode';
+import ignoreRouter from '../config/ignoreRouter';
 
 const appKeyList = new Set();
 // --- 不存在的 App_Key ---
@@ -16,6 +17,12 @@ module.exports = () => {
   return async function validateParams(ctx, next) {
 
     const { path } = ctx.request;
+
+    if (ignoreRouter.indexOf(path) != -1) {
+      await next();
+      return
+    }
+    console.log(11111, path)
 
     // -- 1. 首先检查是否有 app_key 参数 ---
     const app_key = (ctx.request?.body?.app_key || ctx.request?.query?.app_key);
