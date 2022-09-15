@@ -2,10 +2,17 @@ import BaseController from './BaseController';
 
 /**
  * save report error msg to MYSQL
- * @param error
+ * @controller 上报 Controller
  */
 export default class ReportController extends BaseController {
   // --- save user report ---
+  /**
+   * @summary 上报接口
+   * @router post /api/report
+   * @request query string appkey 项目 appkey
+   * @request query string event_type 事件类型
+   * @response 200 SuccessBody 返回结果
+   */
   public async report() {
     const { ctx, service } = this;
     const { userSubTable } = ctx.app.config;
@@ -64,7 +71,7 @@ export default class ReportController extends BaseController {
     const { ctx, service } = this;
     const body = ctx.request.body;
     const data = await service.report.savePageCrash(body);
-    
+
     this.success(data);
   }
 }
